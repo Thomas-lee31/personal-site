@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+/* -----------------------------
+   Design Tokens
+------------------------------ */
+:root {
+  /* Colors (RGB for opacity support) */
+  --bg: 245 244 240;
+  --fg: 20 20 20;
+  --muted: 97 97 109;
+  --border: 224 222 214;
+  --accent: 12 125 104;
+  --accent-warm: 233 96 75;
+
+  /* UI */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  /* Typography */
+  --font-sans: "Space Grotesk", "Avenir Next", "Avenir", "Gill Sans", sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New";
+
+  color-scheme: light;
+}
+
+/* -----------------------------
+   Base Reset
+------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 500px at 15% -10%, rgb(var(--accent) / 0.12), transparent 60%),
+    radial-gradient(700px 400px at 85% 5%, rgb(var(--accent-warm) / 0.14), transparent 55%),
+    linear-gradient(180deg, rgb(var(--bg)) 0%, rgb(241 240 236) 100%);
+  color: rgb(var(--fg));
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* -----------------------------
+   Typography
+------------------------------ */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+}
+
+p {
+  color: rgb(var(--muted));
+}
+
+/* Links */
+a {
+  color: rgb(var(--fg));
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* -----------------------------
+   Code
+------------------------------ */
+pre,
+code {
+  font-family: var(--font-mono);
+}
+
+pre {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: rgb(24 24 27);
+  color: rgb(244 244 245);
+  overflow-x: auto;
+}
+
+code {
+  background: rgb(244 244 245);
+  padding: 0.15rem 0.35rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85em;
+}
+
+.dark code {
+  background: rgb(39 39 42);
+}
+
+/* -----------------------------
+   Borders & Dividers
+------------------------------ */
+hr {
+  border: none;
+  border-top: 1px solid rgb(var(--border));
+  margin: 2rem 0;
+}
+
+/* -----------------------------
+   Selection
+------------------------------ */
+::selection {
+  background: rgb(var(--accent) / 0.25);
+}
+
+/* -----------------------------
+   Scrollbar (optional)
+------------------------------ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgb(63 63 70);
+}
+
+/* -----------------------------
+   Minimal helpers
+------------------------------ */
+.container {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}

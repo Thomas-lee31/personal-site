@@ -1,210 +1,512 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
+import '../styles/global.css';
 ---
 
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
+<div class="page">
+	<header class="site-header">
+		<div class="container nav">
+			<a class="brand" href="#home">Thomas Lee</a>
+			<nav class="nav-links" aria-label="Primary">
+				<a href="#home">Home</a>
+				<a href="#experiences">Experiences</a>
+				<a href="#projects">Projects</a>
+				<a href="#contact">Contact</a>
+			</nav>
+			<a class="nav-button" href="#contact">Let's talk</a>
+		</div>
+	</header>
+
 	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
+		<section id="home" class="section hero">
+			<div class="container hero-grid">
+				<div class="hero-content">
+					<p class="eyebrow">Product design + front-end</p>
+					<h1>Designing calm, clear experiences for the web.</h1>
+					<p class="lead">
+						I build clean interfaces and thoughtful interactions with a focus on clarity,
+						speed, and craft. I care about the details that make software feel effortless.
+					</p>
+					<div class="hero-actions">
+						<a class="button primary" href="#projects">View projects</a>
+						<a class="button ghost" href="#contact">Get in touch</a>
+					</div>
+				</div>
+				<div class="hero-panel">
+					<div class="panel-card">
+						<p class="panel-title">Focus</p>
+						<ul class="panel-list">
+							<li>Product design systems</li>
+							<li>Interface engineering</li>
+							<li>Brand and web presence</li>
+						</ul>
+					</div>
+					<div class="panel-card panel-accent">
+						<p class="panel-title">Availability</p>
+						<p class="panel-body">
+							Open to new roles and collaborations. Based on project fit and timeline.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="experiences" class="section section-surface">
+			<div class="container">
+				<div class="section-header">
+					<div>
+						<h2>Experiences</h2>
+						<p>Recent roles that shaped my approach to product and craft.</p>
+					</div>
+				</div>
+				<div class="experience-list">
+					<article class="experience-card">
+						<div class="exp-meta">2022 - Present</div>
+						<h3>Senior Product Designer · Company Name</h3>
+						<p>
+							Led end-to-end design for a flagship platform, aligning teams around a cohesive
+							system and measurable outcomes.
+						</p>
+					</article>
+					<article class="experience-card">
+						<div class="exp-meta">2020 - 2022</div>
+						<h3>Product Designer · Company Name</h3>
+						<p>
+							Shipped new onboarding and pricing experiences, improving activation and
+							long-term retention.
+						</p>
+					</article>
+					<article class="experience-card">
+						<div class="exp-meta">2018 - 2020</div>
+						<h3>Front-end Designer · Studio Name</h3>
+						<p>
+							Delivered responsive brand sites and product marketing pages with a focus on
+							performance and clarity.
+						</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="projects" class="section">
+			<div class="container">
+				<div class="section-header">
+					<div>
+						<h2>Projects</h2>
+						<p>Selected work that blends strategy, design, and engineering.</p>
+					</div>
+				</div>
+				<div class="project-grid">
+					<article class="project-card">
+						<p class="project-tag">Product Platform</p>
+						<h3>Project Name</h3>
+						<p>Redesigned a multi-tenant dashboard to surface critical insights faster.</p>
+					</article>
+					<article class="project-card">
+						<p class="project-tag">Design System</p>
+						<h3>Project Name</h3>
+						<p>Built a component library that sped up delivery and improved consistency.</p>
+					</article>
+					<article class="project-card">
+						<p class="project-tag">Personal Site</p>
+						<h3>Project Name</h3>
+						<p>Crafted a clean, editorial portfolio with thoughtful motion and typography.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="section">
+			<div class="container">
+				<div class="contact-card">
+					<div>
+						<h2>Contact</h2>
+						<p>Want to build something clean and useful? Reach out.</p>
+					</div>
+					<div class="contact-actions">
+						<a class="button light" href="mailto:hello@yourname.com">hello@yourname.com</a>
+						<span class="contact-note">Add your email and socials to personalize this.</span>
+					</div>
+				</div>
+			</div>
 		</section>
 	</main>
 
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 5.0?</h2>
-		<p>
-			From content layers to server islands, click to learn more about the new features and
-			improvements in Astro 5.0
-		</p>
-	</a>
+	<footer class="site-footer">
+		<div class="container">© 2026 Thomas Lee. All Rights Reserved</div>
+	</footer>
 </div>
 
 <style>
-	#background {
-		position: fixed;
+	.page {
+		min-height: 100vh;
+		color: rgb(var(--fg));
+	}
+
+	.site-header {
+		position: sticky;
 		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
+		z-index: 20;
+		background: rgb(var(--bg) / 0.75);
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid rgb(var(--border));
 	}
 
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
-
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
-
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
-
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
-
-	#links {
-		display: flex;
-		gap: 16px;
-	}
-
-	#links a {
+	.nav {
 		display: flex;
 		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
+		justify-content: space-between;
+		gap: 1.5rem;
+		padding: 1rem 0;
+	}
+
+	.brand {
+		font-family: var(--font-display);
+		font-size: 1.2rem;
+		letter-spacing: -0.01em;
+		color: rgb(var(--fg));
 		text-decoration: none;
-		transition: color 0.2s;
 	}
 
-	#links a:hover {
-		color: rgb(78, 80, 86);
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		font-size: 0.95rem;
 	}
 
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
+	.nav-links a {
+		color: rgb(var(--muted));
+		font-weight: 500;
+		transition: color 0.2s ease;
 	}
 
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
+	.nav-links a:hover {
+		color: rgb(var(--fg));
 	}
 
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
+	.nav-button {
+		padding: 0.55rem 1.2rem;
+		border-radius: 999px;
+		background: rgb(var(--fg));
+		color: rgb(var(--bg));
+		font-size: 0.9rem;
+		font-weight: 500;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		box-shadow: 0 12px 24px rgb(20 20 20 / 0.15);
 	}
 
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+	.nav-button:hover {
+		transform: translateY(-1px);
+	}
+
+	.section {
+		padding: 5.5rem 0;
+		scroll-margin-top: 90px;
+	}
+
+	.section-surface {
+		background: rgb(255 255 255 / 0.7);
+		border-top: 1px solid rgb(var(--border));
+		border-bottom: 1px solid rgb(var(--border));
+	}
+
+	.section-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 2rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.section-header p {
+		max-width: 32rem;
+	}
+
+	.hero {
+		padding-top: 6.5rem;
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+		gap: 2.5rem;
+		align-items: center;
+	}
+
+	.eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.24em;
+		font-size: 0.72rem;
+		color: rgb(var(--muted));
+		margin: 0 0 1rem;
+	}
+
+	.hero-content h1 {
+		font-size: clamp(2.6rem, 5vw, 3.8rem);
+		line-height: 1.05;
+		margin: 0 0 1rem;
+	}
+
+	.lead {
+		font-size: 1.08rem;
+		max-width: 34rem;
+		margin: 0 0 1.6rem;
+	}
+
+	.hero-actions {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.8rem 1.6rem;
+		border-radius: 999px;
+		border: 1px solid rgb(var(--border));
+		font-weight: 500;
+		background: rgb(255 255 255 / 0.7);
+		color: rgb(var(--fg));
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease,
+			background 0.2s ease,
+			color 0.2s ease;
+	}
+
+	.button:hover {
+		transform: translateY(-1px);
+	}
+
+	.button.primary {
+		background: rgb(var(--accent));
+		color: rgb(255 255 255);
+		border-color: transparent;
+		box-shadow: 0 14px 30px rgb(var(--accent) / 0.3);
+	}
+
+	.button.ghost {
+		background: rgb(255 255 255 / 0.6);
+	}
+
+	.button.light {
+		background: rgb(255 255 255);
+		color: rgb(20 20 20);
+		border-color: transparent;
+	}
+
+	.hero-panel {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.panel-card {
+		padding: 1.25rem;
+		border-radius: var(--radius-lg);
+		background: rgb(255 255 255 / 0.85);
+		border: 1px solid rgb(var(--border));
+		box-shadow: 0 24px 40px rgb(20 20 20 / 0.08);
+	}
+
+	.panel-accent {
+		background: linear-gradient(
+			140deg,
+			rgb(255 255 255 / 0.95),
+			rgb(var(--accent) / 0.08)
+		);
+		border-color: rgb(var(--accent) / 0.3);
+	}
+
+	.panel-title {
+		margin: 0 0 0.6rem;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		color: rgb(var(--muted));
+	}
+
+	.panel-list {
+		list-style: none;
 		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.45rem;
+		font-weight: 500;
 	}
 
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
-
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
+	.panel-body {
 		margin: 0;
+		color: rgb(var(--fg));
 	}
 
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
+	.experience-list {
+		display: grid;
+		gap: 1rem;
 	}
 
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
+	.experience-card {
+		padding: 1.5rem;
+		border-radius: var(--radius-lg);
+		border: 1px solid rgb(var(--border));
+		background: rgb(255 255 255 / 0.8);
+		display: grid;
+		gap: 0.5rem;
 	}
 
-	#news {
+	.experience-card h3 {
+		margin: 0;
+		font-size: 1.15rem;
+	}
+
+	.exp-meta {
+		font-size: 0.75rem;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: rgb(var(--muted));
+	}
+
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.5rem;
+	}
+
+	.project-card {
+		padding: 1.5rem;
+		border-radius: var(--radius-lg);
+		border: 1px solid rgb(var(--border));
+		background: rgb(255 255 255 / 0.85);
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.project-card h3 {
+		margin: 0;
+		font-size: 1.2rem;
+	}
+
+	.project-tag {
+		margin: 0;
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		color: rgb(var(--muted));
+	}
+
+	.contact-card {
+		position: relative;
+		padding: 2rem;
+		border-radius: var(--radius-lg);
+		background: rgb(var(--fg));
+		color: rgb(var(--bg));
+		overflow: hidden;
+		display: grid;
+		gap: 1.25rem;
+	}
+
+	.contact-card::after {
+		content: "";
 		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
+		top: -40%;
+		right: -10%;
+		width: 260px;
+		height: 260px;
+		background: radial-gradient(
+			circle,
+			rgb(var(--accent-warm) / 0.5),
+			transparent 70%
+		);
+		opacity: 0.7;
 	}
 
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
+	.contact-card h2 {
+		margin: 0 0 0.5rem;
+		color: rgb(var(--bg));
 	}
 
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
+	.contact-card p {
+		margin: 0;
+		color: rgb(255 255 255 / 0.75);
+		max-width: 32rem;
 	}
 
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
+	.contact-actions {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+		position: relative;
+		z-index: 1;
+	}
 
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
+	.contact-note {
+		font-size: 0.85rem;
+		color: rgb(255 255 255 / 0.65);
+	}
 
-		#links {
+	.site-footer {
+		padding: 2rem 0 3rem;
+		color: rgb(var(--muted));
+		font-size: 0.85rem;
+		text-align: center;
+	}
+
+	@media (max-width: 900px) {
+		.nav {
 			flex-wrap: wrap;
 		}
 
-		#links a.button {
-			padding: 14px 18px;
+		.nav-links {
+			width: 100%;
+			justify-content: space-between;
+			flex-wrap: wrap;
 		}
 
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
+		.nav-button {
+			display: none;
 		}
 
-		h1 {
-			line-height: 1.5;
+		.section-header {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.hero-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.project-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 640px) {
+		.section {
+			padding: 3.5rem 0;
+		}
+
+		.nav {
+			padding: 0.75rem 0;
+		}
+
+		.hero {
+			padding-top: 4.5rem;
+		}
+
+		.hero-actions,
+		.contact-actions {
+			width: 100%;
+		}
+
+		.button {
+			width: 100%;
+		}
+
+		.project-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>
