@@ -7,8 +7,8 @@
 :root {
   /* Colors (RGB for opacity support) */
   --bg: 225 225 225;
-  --fg: 30 30 30;
-  --muted: 90 95 85;
+  --fg: 107 122 91;
+  --muted: 107 122 91;
   --border: 200 200 195;
   --accent: 107 122 91;
   --accent-warm: 130 140 110;
