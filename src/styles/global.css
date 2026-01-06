@@ -6,12 +6,12 @@
 ------------------------------ */
 :root {
   /* Colors (RGB for opacity support) */
-  --bg: 245 244 240;
-  --fg: 20 20 20;
-  --muted: 97 97 109;
-  --border: 224 222 214;
-  --accent: 12 125 104;
-  --accent-warm: 233 96 75;
+  --bg: 225 225 225;
+  --fg: 30 30 30;
+  --muted: 90 95 85;
+  --border: 200 200 195;
+  --accent: 107 122 91;
+  --accent-warm: 130 140 110;
 
   /* UI */
   --radius-sm: 0.5rem;
@@ -45,9 +45,9 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(900px 500px at 15% -10%, rgb(var(--accent) / 0.12), transparent 60%),
-    radial-gradient(700px 400px at 85% 5%, rgb(var(--accent-warm) / 0.14), transparent 55%),
-    linear-gradient(180deg, rgb(var(--bg)) 0%, rgb(241 240 236) 100%);
+    radial-gradient(900px 500px at 15% -10%, rgb(var(--accent) / 0.08), transparent 60%),
+    radial-gradient(700px 400px at 85% 5%, rgb(var(--accent-warm) / 0.06), transparent 55%),
+    rgb(var(--bg));
   color: rgb(var(--fg));
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
