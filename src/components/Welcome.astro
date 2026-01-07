@@ -351,6 +351,16 @@ import '../styles/global.css';
 		transform: translateX(-50%) translateY(4px);
 	}
 
+	@media (max-height: 720px) {
+		.hero {
+			padding-bottom: 2rem;
+		}
+
+		.scroll-indicator {
+			display: none;
+		}
+	}
+
 	@keyframes bounce {
 		0%, 20%, 50%, 80%, 100% {
 			transform: translateX(-50%) translateY(0);
