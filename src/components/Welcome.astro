@@ -55,26 +55,31 @@ import '../styles/global.css';
 			<div class="container">
 				<div class="section-header">
 					<h2>Experiences</h2>
-					<p>Internships and roles that shaped my journey.</p>
+					<p>My past internships.</p>
 				</div>
 				<div class="experience-list">
 					<article class="experience-card">
 						<div class="exp-meta">Summer 2025</div>
 						<h3>Software Engineering Intern</h3>
-						<p class="exp-company">Coinbase</p>
-						<p>
+						<p class="exp-company"><a href="https://www.coinbase.com/" target="_blank" rel="noopener noreferrer">Coinbase</a></p>
+						<!-- <p>
 							Developed full-stack features and contributed to core product improvements, 
 							working with React, Node.js, and PostgreSQL.
-						</p>
+						</p> -->
 					</article>
 					<article class="experience-card">
-						<div class="exp-meta">Fall 2024</div>
+						<div class="exp-meta">Summer 2024</div>
 						<h3>Research Intern</h3>
-						<p class="exp-company">Academia Sinica</p>
-						<p>
+						<p class="exp-company"><a href="https://www.sinica.edu.tw/en" target="_blank" rel="noopener noreferrer">Academia Sinica</a></p>
+						<!-- <p>
 							Redesigned onboarding flow and created design system components, 
 							improving user activation by 40%.
-						</p>
+						</p> -->
+					</article>
+					<article class="experience-card">
+						<div class="exp-meta">Summer 2023</div>
+						<h3>Software Engineering Intern</h3>
+						<p class="exp-company"><a href="https://en.tascsemi.com/" target="_blank" rel="noopener noreferrer">Taiwan Asia Semiconductor Corp.</a></p>
 					</article>
 				</div>
 			</div>
@@ -148,9 +153,11 @@ import '../styles/global.css';
 								<p class="fact-label">Favorite Artist</p>
 								<p class="fact-prompt">Guess who?</p>
 							</div>
-							<div class="card-face card-back">
+							<div class="card-face card-back has-image artist-bg">
 								<p class="fact-label">Favorite Artist</p>
-								<p class="fact-answer">David Tao-Kung Pao Chicken</p>
+								<p class="fact-answer">
+									<a href="https://youtu.be/aidyvlz5vqE?si=19jlcbs3PCDqL-D7" target="_blank" rel="noopener noreferrer">David Tao</a>
+								</p>
 							</div>
 						</div>
 					</button>
@@ -158,12 +165,14 @@ import '../styles/global.css';
 					<button class="fact-card" type="button" aria-label="Favorite basketball player">
 						<div class="card-inner">
 							<div class="card-face card-front">
-								<p class="fact-label">Favorite Player</p>
+								<p class="fact-label">Favorite Basketball Player</p>
 								<p class="fact-prompt">Who dominates?</p>
 							</div>
-							<div class="card-face card-back">
+							<div class="card-face card-back has-image lebron-bg">
 								<p class="fact-label">Favorite Player</p>
-								<p class="fact-answer">LeBron James—the 🐐</p>
+								<p class="fact-answer">
+									<a href="https://youtube.com/shorts/u_mazHGvjHc?si=R9zV1zlcAm_ntJkB" target="_blank" rel="noopener noreferrer">LeBron James—the 🐐</a>
+								</p>
 							</div>
 						</div>
 					</button>
@@ -174,9 +183,9 @@ import '../styles/global.css';
 								<p class="fact-label">Productivity Fuel</p>
 								<p class="fact-prompt">What keeps me building?</p>
 							</div>
-							<div class="card-face card-back">
+							<div class="card-face card-back has-image ramen-bg">
 								<p class="fact-label">Productivity Fuel</p>
-								<p class="fact-answer">Oat milk latte + deep work playlists.</p>
+								<p class="fact-answer">Ramen 🍜</p>
 							</div>
 						</div>
 					</button>
@@ -255,6 +264,7 @@ import '../styles/global.css';
 		justify-content: center;
 		padding: 2rem 1.5rem;
 		position: relative;
+		overflow: hidden;
 	}
 
 	.hero-content {
@@ -265,6 +275,8 @@ import '../styles/global.css';
 		gap: 1.5rem;
 		max-width: 48rem;
 		margin: 0 auto;
+		position: relative;
+		z-index: 2;
 	}
 
 	.profile-image {
@@ -344,11 +356,38 @@ import '../styles/global.css';
 		color: rgb(var(--muted));
 		transition: all 0.3s ease;
 		animation: bounce 2s infinite;
+		z-index: 2;
 	}
 
 	.scroll-indicator:hover {
 		color: rgb(var(--fg));
 		transform: translateX(-50%) translateY(4px);
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		inset: -25%;
+		background:
+			radial-gradient(40% 40% at 20% 30%, rgb(var(--accent) / 0.24), transparent 60%),
+			radial-gradient(35% 35% at 80% 20%, rgb(var(--accent-warm) / 0.18), transparent 60%),
+			radial-gradient(45% 45% at 50% 75%, rgb(var(--accent) / 0.16), transparent 60%);
+		filter: blur(42px);
+		opacity: 0.9;
+		animation: heroGlow 18s ease-in-out infinite alternate;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.hero::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+		opacity: 0.35;
+		mix-blend-mode: soft-light;
+		pointer-events: none;
+		z-index: 1;
 	}
 
 	@media (max-height: 720px) {
@@ -370,6 +409,21 @@ import '../styles/global.css';
 		}
 		60% {
 			transform: translateX(-50%) translateY(-4px);
+		}
+	}
+
+	@keyframes heroGlow {
+		0% {
+			transform: translate3d(0, 0, 0) scale(1);
+			opacity: 0.9;
+		}
+		50% {
+			transform: translate3d(3%, -2%, 0) scale(1.05);
+			opacity: 0.75;
+		}
+		100% {
+			transform: translate3d(-3%, 3%, 0) scale(1.08);
+			opacity: 0.85;
 		}
 	}
 
@@ -402,7 +456,7 @@ import '../styles/global.css';
 	.experience-list {
 		display: grid;
 		gap: 1.5rem;
-		max-width: 56rem;
+		max-width: 40rem;
 		margin: 0 auto;
 	}
 
@@ -415,6 +469,7 @@ import '../styles/global.css';
 		gap: 0.75rem;
 		transition: all 0.3s ease;
 		box-shadow: 0 4px 12px rgb(20 20 20 / 0.04);
+		width: 100%;
 	}
 
 	.experience-card:hover {
@@ -598,6 +653,52 @@ import '../styles/global.css';
 		background: linear-gradient(135deg, rgb(var(--accent-warm) / 0.1), rgb(255 255 255 / 0.95));
 	}
 
+	.card-back.has-image {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		color: #fdfdfd;
+		text-shadow:
+			0 6px 20px rgb(0 0 0 / 0.6),
+			0 1px 2px rgb(0 0 0 / 0.65);
+		overflow: hidden;
+	}
+
+	.card-back.has-image::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.75));
+		border-radius: inherit;
+		z-index: 0;
+	}
+
+	.card-back.has-image > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	.card-back.has-image .fact-label {
+		color: #e8edf5;
+	}
+
+	.card-back.has-image .fact-answer,
+	.card-back.has-image .fact-answer a {
+		color: #fdfdfd;
+	}
+
+	.artist-bg {
+		background-image: url('/david.jpeg');
+	}
+
+	.lebron-bg {
+		background-image: url('/lebron.jpg');
+	}
+
+	.ramen-bg {
+		background-image: url('/ramen.jpg');
+	}
+
 	.fact-label {
 		margin: 0;
 		text-transform: uppercase;
@@ -613,6 +714,13 @@ import '../styles/global.css';
 		font-size: 1.05rem;
 		line-height: 1.5;
 		color: rgb(var(--fg));
+	}
+
+	.fact-answer a {
+		color: inherit;
+		text-decoration: underline;
+		text-decoration-color: rgb(255 255 255 / 0.8);
+		text-underline-offset: 4px;
 	}
 
 	/* Footer */
