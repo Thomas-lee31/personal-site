@@ -1,0 +1,123 @@
+---
+import { siteConfig } from '../config';
+
+const codeSymbols = ['</>', '{}', '=>', '[]', '<>', '()', '::', '==', '++', ';'];
+const bgSymbols = Array.from({ length: 120 }, (_, i) => codeSymbols[i % codeSymbols.length]);
+---
+
+<section id="home" class="min-h-screen bg-zinc-950 text-white flex flex-col items-center justify-center relative overflow-hidden px-6">
+  <!-- Background code symbols grid -->
+  <div
+    class="absolute inset-0 grid grid-cols-10 gap-0 select-none pointer-events-none"
+    aria-hidden="true"
+    style="grid-template-rows: repeat(12, 1fr);"
+  >
+    {bgSymbols.map(symbol => (
+      <span class="flex items-center justify-center font-mono text-zinc-700 text-base opacity-50">
+        {symbol}
+      </span>
+    ))}
+  </div>
+
+  <!-- Gradient overlay to fade symbols toward center -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(9,9,11,0.85) 0%, transparent 100%);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center max-w-2xl">
+    <p class="font-mono text-zinc-400 text-base mb-4 animate-fade-in">
+      Hello! 👋
+    </p>
+    <h1 class="font-mono font-bold text-white mb-4 animate-fade-in animation-delay-200"
+      style="font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.1; letter-spacing: -0.02em;">
+      I'm {siteConfig.name}
+    </h1>
+    <p class="font-mono text-zinc-400 text-xl mb-10 animate-fade-in animation-delay-400">
+      {siteConfig.title}
+    </p>
+
+    <!-- Social links -->
+    <div class="flex items-center justify-center gap-3 animate-fade-in animation-delay-600">
+      {siteConfig.social?.github && (
+        <a
+          href={siteConfig.social.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          class="p-3 rounded-lg border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-all duration-200"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      )}
+      {siteConfig.social?.linkedin && (
+        <a
+          href={siteConfig.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="p-3 rounded-lg border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-all duration-200"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+      )}
+      {siteConfig.social?.twitter && (
+        <a
+          href={siteConfig.social.twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X (Twitter)"
+          class="p-3 rounded-lg border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 transition-all duration-200"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+          </svg>
+        </a>
+      )}
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <a
+    href="#about"
+    class="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-600 hover:text-zinc-400 transition-colors animate-bounce-slow"
+    aria-label="Scroll to about"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
+  </a>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounceSlow {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
+  .animation-delay-600 { animation-delay: 0.6s; }
+
+  .animate-bounce-slow {
+    animation: bounceSlow 2s ease-in-out infinite;
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+import { siteConfig } from '../config';
+
+const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+const hasFunFacts = siteConfig.funFacts && siteConfig.funFacts.length > 0;
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6"
+>
+  <div class="max-w-5xl mx-auto flex items-center justify-between">
+    <a
+      href="#home"
+      class="font-mono text-sm font-semibold text-white hover:text-zinc-300 transition-colors"
+    >
+      {siteConfig.name.split(' ').map(w => w[0]).join('')}
+    </a>
+    <nav class="flex items-center gap-6">
+      <a
+        href="#about"
+        class="font-mono text-sm text-zinc-400 hover:text-white transition-colors"
+      >About</a>
+      {hasProjects && (
+        <a
+          href="#projects"
+          class="font-mono text-sm text-zinc-400 hover:text-white transition-colors"
+        >Projects</a>
+      )}
+      {hasExperience && (
+        <a
+          href="#experience"
+          class="font-mono text-sm text-zinc-400 hover:text-white transition-colors"
+        >Experience</a>
+      )}
+      {hasFunFacts && (
+        <a
+          href="#fun-facts"
+          class="font-mono text-sm text-zinc-400 hover:text-white transition-colors"
+        >Fun Facts</a>
+      )}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('header');
+
+  window.addEventListener('scroll', () => {
+    if (!header) return;
+    if (window.scrollY > 80) {
+      header.classList.add('bg-zinc-950/90', 'backdrop-blur-sm', 'border-b', 'border-zinc-800');
+    } else {
+      header.classList.remove('bg-zinc-950/90', 'backdrop-blur-sm', 'border-b', 'border-zinc-800');
+    }
+  });
+</script>

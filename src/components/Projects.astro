@@ -1,0 +1,81 @@
+---
+import { siteConfig } from '../config';
+
+const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+---
+
+{hasProjects && (
+  <section id="projects" class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-16">
+        <!-- Section label -->
+        <div class="col-span-3 mb-10 lg:mb-0">
+          <div class="lg:sticky lg:top-28">
+            <span class="font-mono text-xs font-semibold tracking-widest text-blue-700 uppercase">
+              Projects
+            </span>
+            <div class="mt-2 h-px w-8 bg-blue-700"></div>
+          </div>
+        </div>
+
+        <!-- Project list -->
+        <div class="col-span-9 flex flex-col gap-4">
+          {siteConfig.projects.map((project, index) => {
+            const Tag = project.link ? 'a' : 'div';
+            const linkProps = project.link
+              ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' }
+              : {};
+
+            return (
+              <Tag
+                {...linkProps}
+                class="group relative flex items-start gap-6 border border-zinc-200 rounded-lg p-6 hover:border-blue-200 hover:shadow-sm transition-all duration-200 no-underline"
+              >
+                <!-- Number -->
+                <span class="font-mono text-3xl font-bold text-zinc-100 group-hover:text-blue-100 transition-colors leading-none shrink-0 select-none">
+                  0{index + 1}
+                </span>
+
+                <!-- Content -->
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-2">
+                    <h3 class="font-mono font-semibold text-zinc-900 text-base group-hover:text-blue-700 transition-colors">
+                      {project.name}
+                    </h3>
+                    {project.link && (
+                      <svg
+                        class="w-4 h-4 text-zinc-400 group-hover:text-blue-700 transition-colors shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    )}
+                  </div>
+                  <p class="font-mono text-sm text-zinc-500 leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  {project.skills && project.skills.length > 0 && (
+                    <div class="flex flex-wrap gap-2">
+                      {project.skills.map(skill => (
+                        <span class="font-mono text-xs font-medium px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Tag>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+)}

@@ -1,0 +1,35 @@
+---
+import { siteConfig } from '../config';
+---
+
+<section id="about" class="py-24 bg-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-16">
+      <!-- Section label -->
+      <div class="col-span-3 mb-10 lg:mb-0">
+        <div class="lg:sticky lg:top-28">
+          <span class="font-mono text-xs font-semibold tracking-widest text-blue-700 uppercase">
+            About Me
+          </span>
+          <div class="mt-2 h-px w-8 bg-blue-700"></div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="col-span-9">
+        <p class="font-mono text-zinc-600 leading-relaxed text-base mb-10">
+          {siteConfig.aboutMe}
+        </p>
+        {siteConfig.skills && siteConfig.skills.length > 0 && (
+          <div class="flex flex-wrap gap-2">
+            {siteConfig.skills.map(skill => (
+              <span class="font-mono text-xs font-medium px-3 py-1.5 bg-blue-50 text-blue-700 border border-blue-200 rounded">
+                {skill}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
