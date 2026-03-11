@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://thomas-lee31.github.io',
+  site: 'https://personal-site-five-liart.vercel.app',
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
