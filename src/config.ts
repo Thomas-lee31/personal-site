@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Thomas Lee",
-  title: "Software Engineer",
+  title: "AI Builder",
   description:
-    "Portfolio of Thomas Lee — Software Engineer interested in Web3 and startups.",
+    "Portfolio of Thomas Lee — AI Builder interested in AI, Web3 and startups.",
   accentColor: "#1d4ed8",
   social: {
     github: "https://github.com/Thomas-lee31",
@@ -10,23 +10,29 @@ export const siteConfig = {
     twitter: "https://x.com/masilee04",
   },
   aboutMe:
-    "I'm a software engineer passionate about Web3 and startups. I enjoy building at the intersection of decentralized technology and real-world applications — from DeFi payment infrastructure to AI-powered agents. Always looking to push what's possible.",
+    "I'm an AI builder/software engineer passionate about AI, Web3 and startups. I've gained experience in building scalable backend microservices, full-stack web applications, and web3 projects. Over the past year, I've been deep in agentic AI systems and building AI agents, and I'm all in on building with AI. I'm looking for an opportunity where I'm given lots of ownership, move fast, and get things done.",
   skills: [
     "TypeScript",
     "React",
     "Python",
-    "Web3",
+    "Go",
     "Node.js",
     "PostgreSQL",
-    "Solidity",
+    "Redis",
   ],
   projects: [
+    {
+      name: "Crypto Neobank",
+      description: "A crypto neobank that allows students to earn yields on their stablecoins and trade stocks.",
+      link: "",
+      skills: ["Swift", "Typescript", "Redis", "PostgreSQL"],
+    },
     {
       name: "Hotel Booking AI Agent",
       description:
         "An AI-Agent for handling hotel search, reservation, and payment.",
       link: "https://github.com/SeaPay-ai/hotel-ai",
-      skills: ["Python", "TypeScript", "x402"],
+      skills: ["AI Agents","Python", "TypeScript", "React","x402"],
     },
     {
       name: "SeaPay",
@@ -36,9 +42,9 @@ export const siteConfig = {
     },
     {
       name: "Bucky's Menu",
-      description: "Helping users get notified when their favorite food is served.",
+      description: "Helping students get notified when their favorite food is served.",
       link: "https://github.com/Thomas-lee31/Bucky-s-Menu",
-      skills: ["TypeScript", "PostgreSQL"],
+      skills: ["TypeScript", "PostgreSQL", "HTML", "CSS"],
     },
   ],
   experience: [
@@ -62,29 +68,6 @@ export const siteConfig = {
       title: "Software Engineering Intern",
       dateRange: "Summer 2023",
       bullets: [] as string[],
-    },
-  ],
-  funFacts: [
-    {
-      label: "Favorite Artist",
-      prompt: "Guess who?",
-      answer: "David Tao",
-      answerUrl: "https://youtu.be/aidyvlz5vqE?si=19jlcbs3PCDqL-D7",
-      image: "/david.jpeg",
-    },
-    {
-      label: "Favorite Basketball Player",
-      prompt: "Who dominates?",
-      answer: "LeBron James — the 🐐",
-      answerUrl: "https://youtube.com/shorts/u_mazHGvjHc?si=R9zV1zlcAm_ntJkB",
-      image: "/lebron.jpg",
-    },
-    {
-      label: "Productivity Fuel",
-      prompt: "What keeps me building?",
-      answer: "Ramen 🍜",
-      answerUrl: null,
-      image: "/ramen.jpg",
     },
   ],
 };

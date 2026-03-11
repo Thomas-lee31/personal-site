@@ -3,7 +3,6 @@ import { siteConfig } from '../config';
 
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-const hasFunFacts = siteConfig.funFacts && siteConfig.funFacts.length > 0;
 ---
 
 <header
@@ -33,12 +32,6 @@ const hasFunFacts = siteConfig.funFacts && siteConfig.funFacts.length > 0;
           href="#experience"
           class="font-mono text-sm text-zinc-400 hover:text-white transition-colors"
         >Experience</a>
-      )}
-      {hasFunFacts && (
-        <a
-          href="#fun-facts"
-          class="font-mono text-sm text-zinc-400 hover:text-white transition-colors"
-        >Fun Facts</a>
       )}
     </nav>
   </div>
