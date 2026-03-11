@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Thomas Lee",
   title: "AI Builder",
+  siteUrl: "https://thomas-lee31.github.io",
   description:
     "Portfolio of Thomas Lee — AI Builder interested in AI, Web3 and startups.",
   accentColor: "#1d4ed8",

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thomas-lee31.github.io/sitemap-index.xml
