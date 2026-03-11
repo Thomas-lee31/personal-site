@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://personal-site-five-liart.vercel.app/sitemap-index.xml
+Sitemap: https://thomaslee.dev/sitemap-index.xml
