@@ -2,34 +2,27 @@
 import { siteConfig } from '../config';
 ---
 
-<section id="about" class="py-24 bg-white">
-  <div class="max-w-5xl mx-auto px-6">
-    <div class="lg:grid lg:grid-cols-12 lg:gap-16">
-      <!-- Section label -->
-      <div class="col-span-3 mb-10 lg:mb-0">
-        <div class="lg:sticky lg:top-28">
-          <span class="font-mono text-xs font-semibold tracking-widest text-blue-700 uppercase">
-            About Me
-          </span>
-          <div class="mt-2 h-px w-8 bg-blue-700"></div>
-        </div>
-      </div>
+<section id="about" class="relative pt-20 sm:pt-28 pb-12">
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -top-10 -left-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl"
+  ></div>
 
-      <!-- Content -->
-      <div class="col-span-9">
-        <p class="font-mono text-zinc-600 leading-relaxed text-base mb-10">
-          {siteConfig.aboutMe}
-        </p>
-        {siteConfig.skills && siteConfig.skills.length > 0 && (
-          <div class="flex flex-wrap gap-2">
-            {siteConfig.skills.map(skill => (
-              <span class="font-mono text-xs font-medium px-3 py-1.5 bg-blue-50 text-blue-700 border border-blue-200 rounded">
-                {skill}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
+  <div class="relative">
+    <h1 class="fade-up font-serif text-5xl sm:text-6xl leading-none tracking-tight">
+      {siteConfig.name}
+    </h1>
+    <p class="fade-up [animation-delay:80ms] mt-4 font-serif italic text-xl sm:text-2xl text-muted">
+      {siteConfig.tagline}
+    </p>
+    <div class="fade-up [animation-delay:160ms] mt-10 space-y-4 leading-relaxed">
+      {siteConfig.about.map((paragraph) => <p>{paragraph}</p>)}
     </div>
+    <p class="fade-up [animation-delay:240ms] mt-8 text-muted">
+      Always happy to chat. Reach me by
+      <a href={`mailto:${siteConfig.email}`} class="link text-accent">email</a>
+      or on
+      <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" class="link text-accent">LinkedIn</a>.
+    </p>
   </div>
 </section>

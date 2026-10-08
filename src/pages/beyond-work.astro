@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config';
+---
+
+<Layout
+  title="Beyond Work"
+  description={`What ${siteConfig.name} is into outside of engineering.`}
+>
+  <section class="pt-16 sm:pt-24 pb-8">
+    <h1 class="fade-up font-serif text-5xl sm:text-6xl leading-none tracking-tight">
+      Beyond Work
+    </h1>
+    <p class="fade-up [animation-delay:80ms] mt-4 font-serif italic text-xl sm:text-2xl text-muted">
+      What I'm into when I'm not writing code.
+    </p>
+
+    <dl class="fade-up [animation-delay:160ms] mt-14 divide-y divide-line border-y border-line">
+      {siteConfig.beyondWork.map((interest) => (
+        <div class="py-6 sm:grid sm:grid-cols-[10rem_1fr] sm:gap-6">
+          <dt class="font-serif text-xl">{interest.title}</dt>
+          <dd class="mt-2 sm:mt-0.5 text-muted leading-relaxed">{interest.body}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+</Layout>

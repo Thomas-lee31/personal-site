@@ -1,51 +1,87 @@
 ---
 import { siteConfig } from '../config';
 
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+const sections = [
+  { id: 'about', label: 'About' },
+  { id: 'timeline', label: 'Timeline' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'blog', label: 'Blog' },
+];
+
+const initials = siteConfig.name
+  .split(' ')
+  .map((word) => word[0])
+  .join('');
+const onBeyondWork = Astro.url.pathname.startsWith('/beyond-work');
 ---
 
 <header
-  id="header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6"
+  id="site-header"
+  class="sticky top-0 z-50 border-b border-transparent transition-colors duration-300 data-scrolled:bg-bg/80 data-scrolled:backdrop-blur-md data-scrolled:border-line"
 >
-  <div class="max-w-5xl mx-auto flex items-center justify-between">
-    <a
-      href="#home"
-      class="font-mono text-sm font-semibold text-white hover:text-zinc-300 transition-colors"
-    >
-      {siteConfig.name.split(' ').map(w => w[0]).join('')}
+  <div class="max-w-2xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+    <a href="/" class="font-serif text-xl text-fg shrink-0">
+      <span class="hidden sm:inline">{siteConfig.name}</span>
+      <span class="sm:hidden">{initials}</span>
     </a>
-    <nav class="flex items-center gap-6">
+    <nav aria-label="Primary" class="flex items-center gap-4 sm:gap-6 text-sm">
+      {sections.map((section) => (
+        <a
+          href={`/#${section.id}`}
+          data-nav-section={section.id}
+          class="text-muted hover:text-fg data-active:text-fg transition-colors"
+        >
+          {section.label}
+        </a>
+      ))}
       <a
-        href="#about"
-        class="font-mono text-sm text-zinc-400 hover:text-white transition-colors"
-      >About</a>
-      {hasProjects && (
-        <a
-          href="#projects"
-          class="font-mono text-sm text-zinc-400 hover:text-white transition-colors"
-        >Projects</a>
-      )}
-      {hasExperience && (
-        <a
-          href="#experience"
-          class="font-mono text-sm text-zinc-400 hover:text-white transition-colors"
-        >Experience</a>
-      )}
+        href="/beyond-work"
+        aria-current={onBeyondWork ? 'page' : undefined}
+        class="text-muted hover:text-fg aria-[current=page]:text-fg transition-colors whitespace-nowrap"
+      >
+        Beyond Work
+      </a>
     </nav>
   </div>
 </header>
 
 <script>
-  const header = document.getElementById('header');
+  const header = document.getElementById('site-header');
+  const links = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>('[data-nav-section]'),
+  );
+  const sections = links
+    .map((link) => document.getElementById(link.dataset.navSection ?? ''))
+    .filter((section): section is HTMLElement => section !== null);
 
-  window.addEventListener('scroll', () => {
-    if (!header) return;
-    if (window.scrollY > 80) {
-      header.classList.add('bg-zinc-950/90', 'backdrop-blur-sm', 'border-b', 'border-zinc-800');
-    } else {
-      header.classList.remove('bg-zinc-950/90', 'backdrop-blur-sm', 'border-b', 'border-zinc-800');
+  function setActive(id: string) {
+    links.forEach((link) => {
+      link.toggleAttribute('data-active', link.dataset.navSection === id);
+    });
+  }
+
+  if (sections.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px' },
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  function onScroll() {
+    header?.toggleAttribute('data-scrolled', window.scrollY > 8);
+
+    const atBottom =
+      window.innerHeight + window.scrollY >= document.body.scrollHeight - 4;
+    if (atBottom && sections.length > 0) {
+      setActive(sections[sections.length - 1].id);
     }
-  });
+  }
+
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 </script>

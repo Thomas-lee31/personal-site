@@ -1,74 +1,62 @@
+type TimelineItem = {
+  title: string;
+  org: string;
+  orgUrl?: string;
+  team?: string;
+  dateRange?: string;
+};
+
+type Project = {
+  name: string;
+  description: string;
+  link?: string;
+};
+
+type Interest = {
+  title: string;
+  body: string;
+};
+
 export const siteConfig = {
   name: "Thomas Lee",
-  title: "AI Builder",
+  title: "Software Engineer",
   siteUrl: "https://thomaslee.dev",
   description:
-    "Portfolio of Thomas Lee — AI Builder interested in AI, Web3 and startups.",
-  accentColor: "#1d4ed8",
-  social: {
-    github: "https://github.com/Thomas-lee31",
-    linkedin: "https://www.linkedin.com/in/shangcheng-lee/",
-    twitter: "https://x.com/masilee04",
-  },
-  aboutMe:
-    "I'm an AI builder/software engineer passionate about AI, Web3 and startups. I've gained experience in building scalable backend microservices, full-stack web applications, and web3 projects. Over the past year, I've been deep in agentic AI systems and building AI agents, and I'm all in on building with AI. I'm looking for an opportunity where I'm given lots of ownership, move fast, and get things done.",
-  skills: [
-    "TypeScript",
-    "React",
-    "Python",
-    "Go",
-    "Node.js",
-    "PostgreSQL",
-    "Redis",
+    "Thomas Lee is a software engineer at IXL Learning, previously at Coinbase.",
+  email: "PLACEHOLDER@example.com",
+  linkedin: "https://www.linkedin.com/in/shangcheng-lee/",
+  tagline: "Software engineer building reliable products and platforms.",
+  about: [
+    "I'm a software engineer on the Business Platform team at IXL Learning. Before that, I interned at Coinbase on Growth & App Infra.",
+    "I studied Computer Sciences and Economics at the University of Wisconsin–Madison.",
   ],
-  projects: [
+  timeline: [
     {
-      name: "Crypto Neobank",
-      description: "A crypto neobank that allows students to earn yields on their stablecoins and trade stocks.",
-      link: "",
-      skills: ["Swift", "Typescript", "Redis", "PostgreSQL"],
+      title: "Software Engineer",
+      org: "IXL Learning",
+      orgUrl: "https://www.ixl.com/",
+      team: "Business Platform",
     },
     {
-      name: "Hotel Booking AI Agent",
-      description:
-        "An AI-Agent for handling hotel search, reservation, and payment.",
-      link: "https://github.com/SeaPay-ai/hotel-ai",
-      skills: ["AI Agents","Python", "TypeScript", "React","x402"],
-    },
-    {
-      name: "SeaPay",
-      description: "Enabling gasless USDC payments on multiple EVM chains.",
-      link: "https://github.com/ZzyzxLabs/sea-pay",
-      skills: ["TypeScript", "React", "Web3"],
-    },
-    {
-      name: "Bucky's Menu",
-      description: "Helping students get notified when their favorite food is served.",
-      link: "https://github.com/Thomas-lee31/Bucky-s-Menu",
-      skills: ["TypeScript", "PostgreSQL", "HTML", "CSS"],
-    },
-  ],
-  experience: [
-    {
-      company: "Coinbase",
-      companyUrl: "https://www.coinbase.com/",
       title: "Software Engineering Intern",
+      org: "Coinbase",
+      orgUrl: "https://www.coinbase.com/",
+      team: "Growth & App Infra",
       dateRange: "Summer 2025",
-      bullets: [] as string[],
     },
     {
-      company: "Academia Sinica",
-      companyUrl: "https://www.sinica.edu.tw/en",
-      title: "Research Intern",
-      dateRange: "Summer 2024",
-      bullets: [] as string[],
+      title: "B.S. Computer Sciences & Economics",
+      org: "University of Wisconsin–Madison",
+      orgUrl: "https://www.wisc.edu/",
     },
-    {
-      company: "Taiwan Asia Semiconductor Corp.",
-      companyUrl: "https://en.tascsemi.com/",
-      title: "Software Engineering Intern",
-      dateRange: "Summer 2023",
-      bullets: [] as string[],
-    },
-  ],
+  ] as TimelineItem[],
+  projects: [] as Project[],
+  beyondWork: [
+    { title: "Finance", body: "[Placeholder: a few words about finance]" },
+    { title: "Prediction markets", body: "[Placeholder: a few words about prediction markets]" },
+    { title: "Working out", body: "[Placeholder: a few words about training]" },
+    { title: "Tennis", body: "[Placeholder: a few words about tennis]" },
+    { title: "Basketball", body: "[Placeholder: a few words about basketball]" },
+    { title: "Nutrition", body: "[Placeholder: a few words about nutrition]" },
+  ] as Interest[],
 };

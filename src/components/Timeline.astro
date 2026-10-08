@@ -1,0 +1,33 @@
+---
+import { siteConfig } from '../config';
+---
+
+<section id="timeline" class="py-12">
+  <h2 class="section-label">Timeline</h2>
+  <ol class="relative border-l border-line ml-1">
+    {siteConfig.timeline.map((item) => (
+      <li class="relative pl-6 pb-8 last:pb-0">
+        <span
+          aria-hidden="true"
+          class="absolute -left-[4.5px] top-2 h-2 w-2 rounded-full bg-accent"
+        ></span>
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+          <h3 class="font-medium">{item.title}</h3>
+          {item.dateRange && (
+            <span class="text-sm text-muted tabular-nums">{item.dateRange}</span>
+          )}
+        </div>
+        <p class="mt-1 text-muted">
+          {item.orgUrl ? (
+            <a href={item.orgUrl} target="_blank" rel="noopener noreferrer" class="link hover:text-fg">
+              {item.org}
+            </a>
+          ) : (
+            item.org
+          )}
+          {item.team && <span> · {item.team}</span>}
+        </p>
+      </li>
+    ))}
+  </ol>
+</section>
